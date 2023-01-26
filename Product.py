@@ -14,37 +14,43 @@ class _Behavior():
         return self.img_url_base + self.product_detail_soup.find('div',attrs={"style":'text-align: center;'}).find('a')['href']
     
     def get_switch_table(self):
-        switch_price_dict = {
-        "switch":{}
-        }
-        
-        switch_table = self.product_detail_soup.find('table', class_='edition_switch_list')
-        switch_type = switch_table.select("td.switch a")
-        switch_price= switch_table.find_all("td", class_='price')
-        
-        
-        for i in range(len(switch_type)):
-            # if(type(switch_type[i].find('div')) != None):
-            #     switch_type[i].find('div').decompose() 
-            switch_price_dict['switch'].update({switch_type[i].text : switch_price[i].text })
-        
-        return switch_price_dict
+        try:
+            switch_price_dict = {
+            "switch":{}
+            }
+            
+            switch_table = self.product_detail_soup.find('table', class_='edition_switch_list')
+            switch_type = switch_table.select("td.switch a")
+            switch_price= switch_table.find_all("td", class_='price')
+            
+            
+            for i in range(len(switch_type)):
+                # if(type(switch_type[i].find('div')) != None):
+                #     switch_type[i].find('div').decompose() 
+                switch_price_dict['switch'].update({switch_type[i].text : switch_price[i].text })
+            
+            return switch_price_dict
+        except:
+            return {}
     
     
     def get_product_spec(self):
-        spec_table = self.product_detail_soup.find('table', class_='v3_specs')
-        spec_table_field = spec_table.find_all("td", class_='field')
-        spec_table_value= spec_table.find_all("td", class_='value')
-        
-        product_spec = {
-        "spec": {}
-        }
-
-        
-        for i in range(len(spec_table)): 
-            product_spec['spec'].update({spec_table_field[i].text : spec_table_value[i].text})
+        try:
+            spec_table = self.product_detail_soup.find('table', class_='v3_specs')
+            spec_table_field = spec_table.find_all("td", class_='field')
+            spec_table_value= spec_table.find_all("td", class_='value')
             
-        return product_spec
+            product_spec = {
+            "spec": {}
+            }
+
+            
+            for i in range(len(spec_table)): 
+                product_spec['spec'].update({spec_table_field[i].text : spec_table_value[i].text})
+                
+            return product_spec
+        except:
+            return {}
     
     def get_detail(self):
         name = self.get_name()

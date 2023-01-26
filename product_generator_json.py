@@ -12,7 +12,7 @@ filename = 'products.json'
 if ~path.exists(filename) :
         with open(filename,'w') as f:
             f.write("[]") 
-            
+i=0
 for url in url_list:
     product = Product(url)
     prod_list = []
@@ -26,6 +26,8 @@ for url in url_list:
         json.dump(prod_list, json_file, 
                             indent=4,  
                             separators=(',',': '))
+    print(i)
+    i += 1
         
     
     
