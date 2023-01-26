@@ -19,13 +19,13 @@ class _Behavior():
         }
         
         switch_table = self.product_detail_soup.find('table', class_='edition_switch_list')
-        switch_type = switch_table.find_all("td", class_='switch')
+        switch_type = switch_table.select("td.switch a")
         switch_price= switch_table.find_all("td", class_='price')
         
         
         for i in range(len(switch_type)):
-            if(type(switch_type[i].find('div')) != None):
-                switch_type[i].find('div').decompose() 
+            # if(type(switch_type[i].find('div')) != None):
+            #     switch_type[i].find('div').decompose() 
             switch_price_dict['switch'].update({switch_type[i].text : switch_price[i].text })
         
         return switch_price_dict
