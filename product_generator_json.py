@@ -2,6 +2,7 @@ from Product import Product
 import pandas as pd
 import json
 from os import path
+import time
 
 df = pd.read_csv("items.csv")
 url_list = df['url'].to_list()
@@ -25,4 +26,8 @@ for url in url_list:
         json.dump(prod_list, json_file, 
                             indent=4,  
                             separators=(',',': '))
+        
+    time.sleep(1)
+    
+    
 
