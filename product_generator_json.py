@@ -27,7 +27,7 @@ for url in url_list:
                             indent=4,  
                             separators=(',',': '))
         
-    time.sleep(1)
+    
     
     
 
