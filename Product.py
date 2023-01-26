@@ -2,15 +2,8 @@ from bs4 import BeautifulSoup
 import requests
 import json
 
-class Product():
-    img_url_base = "https://mechanicalkeyboards.com/shop/"
-    
-    
-    def __init__(self,url) -> None:
-        self.url = url
-        self.product = {}
-        self.product_detail_soup = BeautifulSoup(requests.get(url).text, 'html.parser')
-    
+
+class _Behavior():
     def get_name(self):
         return self.product_detail_soup.find("h4", class_="name").text
     
@@ -70,4 +63,12 @@ class Product():
     
     def get_json(self):
         return json.dumps(self.get_detail(), indent=4)
+
+class Product(_Behavior):
+    img_url_base = "https://mechanicalkeyboards.com/shop/"
     
+    
+    def __init__(self,url) -> None:
+        self.url = url
+        self.product = {}
+        self.product_detail_soup = BeautifulSoup(requests.get(url).text, 'html.parser')
