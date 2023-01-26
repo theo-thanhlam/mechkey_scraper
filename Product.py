@@ -1,14 +1,14 @@
 from bs4 import BeautifulSoup
 import requests
+import json
 
 class Product():
-    product = {}
-    url = ""
     img_url_base = "https://mechanicalkeyboards.com/shop/"
     
     
     def __init__(self,url) -> None:
         self.url = url
+        self.product = {}
         self.product_detail_soup = BeautifulSoup(requests.get(url).text, 'html.parser')
     
     def get_name(self):
@@ -67,4 +67,7 @@ class Product():
         self.product.update(spec_table)
         
         return self.product
+    
+    def get_json(self):
+        return json.dumps(self.get_detail(), indent=4)
     
