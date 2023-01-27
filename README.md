@@ -8,9 +8,9 @@ First it accesses to [Mechanical Keyboards](https://mechanicalkeyboards.com/shop
 ![Lisiting Page][/img/listing_page.png]
 Next it accesses each product page to scrap data
 Target : Product name, avaialble switches and prices, product spec
-![Product name][img/product_page_1.png]
-![Product name][img/product_page_2.png]
-![Product name][img/product_page_3.png]
+![Product name](img/product_page_1.png)
+![Product name](img/product_page_2.png)
+![Product name](img/product_page_3.png)
 All of this data will be store in the json file
 
 # Result
