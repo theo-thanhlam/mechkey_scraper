@@ -19,8 +19,12 @@ All of this data will be store in the json file <br>
 Json file "products.json" stores all the available product with detail. It can be used for different project<br>
 
 # Limitation
-Runtime is long (more than 10 minutes to finish). There should have been a faster way to scrap this<br>
-The data is not stored properly.
+- Runtime is long (more than 10 minutes to finish). There should have been a faster way to scrap this<br>
+- The data is not stored properly.
+
+# Test
+To try the project, run the main.py with the url of product from mechanicalkeyboards.com <br>
+Sample url: ``` https://mechanicalkeyboards.com/shop/index.php?l=product_detail&p=5804 ```
 
 # Overall
 This is a small project that I practice my skills. These data will be used in different project. Stay tuned !!!<br>
